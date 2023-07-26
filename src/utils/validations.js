@@ -5,10 +5,11 @@
  * @returns {string} - The first name extracted from the full name, or the name itself if no blank space is found.
  */
 function firstName(fullName) {
+  const fullNameTrim = fullName.trim('')
   const blankSpace = fullName.lastIndexOf(' ');
 
   if (blankSpace === -1) return fullName;
-  else return fullName.slice(0, blankSpace);
+  else return fullNameTrim.slice(0, blankSpace);
 }
 
 /**
@@ -29,7 +30,7 @@ function verifyStockAvailability(productType, qty) {
   };
 
   const availableStock = stock[productType];
-  if (availableStock === 0) return false;
+  if (availableStock < qty) return false;
   else return true;
 }
 
